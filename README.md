@@ -23,6 +23,8 @@ general
  - [ ] CLI-info: script specification (options and actions and infos that it can give)
  - [ ] CLI-pre-commit-hook: script spacification so it can be used to block unfinished edits
  - [ ] use git to compare current file edited with latest `git show -1 filename.txt`
+ - [ ] Editor: publish as github page (docs folder)
+
 
 ## format
 General format is defined by JSON string injected at the end of each heading, additional brackets are added for less chance of conflict with heading title
