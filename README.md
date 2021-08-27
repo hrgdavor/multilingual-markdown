@@ -13,9 +13,16 @@ genral
  - [ ] create node project (package.json)
  - [ ] CLI: create script with UUID and md5 included
  - [ ] CLI: setup first test (test sample text and md5 of it)
+ - [ ] Editor: basic edit base file (drag and drop 1 file)
+ - [ ] Editor: basic edit translation file (drag and drop 2 files)
  - [ ] CLI: initialize base file (add uuids and hashes)
+ - [ ] Editor: initialize base file (add uuids and hashes)
  - [ ] CLI: generate file for transaltion from base file
  - [ ] CLI: sync translation by injecting missing sections
+ - [ ] Editor: sync translation by injecting missing sections
+ - [ ] CLI-info: script specification (options and actions and infos that it can give)
+ - [ ] CLI-pre-commit-hook: script spacification so it can be used to block unfinished edits
+
 
 ## format
 General format is defined by JSON string injected at the end of each heading, additional brackets are added for less chance of conflict with heading title
