@@ -14,7 +14,8 @@ general
  - [ ] CLI: create script with UUID and md5 included
  - [ ] CLI: setup first test (test sample text and md5 of it)
  - [ ] Editor: basic edit base file (drag and drop 1 file)
- - [ ] Editor: basic edit translation file (drag and drop 2 files)
+ - [ ] Editor: basic edit translation file (drag and drop 2 files) 
+ - [ ] Editor: edit translation file: with diff of changes in base file (drag and drop 2 files) 
  - [ ] CLI: initialize base file (add uuids and hashes)
  - [ ] Editor: initialize base file (add uuids and hashes)
  - [ ] CLI: generate file for transaltion from base file
