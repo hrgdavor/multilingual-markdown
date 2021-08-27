@@ -24,12 +24,13 @@ general
  - [ ] CLI-pre-commit-hook: script spacification so it can be used to block unfinished edits
  - [ ] use git to compare current file edited with latest `git show -1 filename.txt`
  - [ ] Editor: publish as github page (docs folder)
+ - [ ] allow automatic pushing code-block changes across translations (if it was untouched in teh translation)
 
 
 ## format
 General format is defined by JSON string injected at the end of each heading, additional brackets are added for less chance of conflict with heading title
  - `id` - id of the section in the original text
- - `c` -md5 checksum of the text
+ - `h` -md5 checksum of the text
  - `tid` - in translations it signifies the section is a translation, and value points to `id` of original text
  - `status` - empty/ommited when everything is ok, any other value means something needs to be done (`checkGrammar`,`approve`,`in progress`)
 
@@ -37,20 +38,29 @@ Other utilities may inject more properties in the JSON, so editor should not  cl
 
 Base file contains the original text
 ```
-# Main tile {{"id":"UUID", "c":"md5"}}
+# Main tile {{"id":"UUID", "h":"md5"}}
 some text.
 
-## subtitle {{"id":"UUID", "c":"md5"}}
+## subtitle {{"id":"UUID", "h":"md5"}}
 subtitle text etc
 
-## subtitle2 {works also if I use brackets in title} {{"id":"UUID", "c":"md5"}}
+## subtitle2 {works also if I use brackets in title} {{"id":"UUID", "h":"md5"}}
 subtitle2 text etc
 ```
+
+UUID and hash is also generated for code sections
+```
+|```js {{"id":"UUID", "h":"md5"}}
+|  function code(){...
+|```
+```
+
 
 when translation file is created, hash:"" to mark not yet translated.
 
 
 ## hashing rules
+ - code-block JSON data removed before hashing
  - lines trimmed
  - emtpy lines removed 
 
