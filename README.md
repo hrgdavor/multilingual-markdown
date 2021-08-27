@@ -10,6 +10,9 @@ genral
  - [x] hashing rules 
  - [x] uuid lib / func
  - [x] choose hash - MD5(cross platform and cross language) not for security, it is just helping detect changes in text
+ - [ ] create node project (package.json)
+ - [ ] CLI: create script with UUID and md5 included
+ - [ ] CLI: setup first test (test sample text and md5 of it)
  - [ ] CLI: initialize base file (add uuids and hashes)
  - [ ] CLI: generate file for transaltion from base file
  - [ ] CLI: sync translation by injecting missing sections
