@@ -24,8 +24,8 @@ general
  - [ ] CLI-pre-commit-hook: script spacification so it can be used to block unfinished edits
  - [ ] use git to compare current file edited with latest `git show -1 filename.txt`
  - [ ] Editor: publish as github page (docs folder)
- - [ ] CLI: allow automatic pushing code-block changes across translations (if it was untouched in teh translation)
- - [ ] Editor: allow automatic pushing code-block changes across translations (if it was untouched in teh translation)
+ - [ ] CLI: allow automatic pushing code-block changes across translations (if it was unchanged in the translation)
+ - [ ] Editor: allow automatic pushing code-block changes across translations (if it was unchanged in the translation)
 
 
 ## format
