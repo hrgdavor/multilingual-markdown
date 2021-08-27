@@ -23,7 +23,7 @@ general
  - [ ] Editor: sync translation by injecting missing sections
  - [ ] CLI-info: script specification (options and actions and infos that it can give)
  - [ ] CLI-pre-commit-hook: script spacification so it can be used to block unfinished edits
- - [ ] use git to compare current file edited with latest `git show -1 filename.txt`
+ - [ ] use git to compare current file edited with latest `git show HEAD:./filename.txt`
  - [ ] Editor: publish as github page (docs folder)
  - [ ] CLI: allow automatic pushing code-block changes across translations (if it was unchanged in the translation)
  - [ ] Editor: allow automatic pushing code-block changes across translations (if it was unchanged in the translation)
