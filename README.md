@@ -11,8 +11,8 @@ genral
  - [x] uuid lib / func
  - [x] choose hash - MD5(cross platform and cross language) not for security, it is just helping detect changes in text
  - [ ] CLI: initialize base file (add uuids and hashes)
- - [ ] CLI: generate base file for transaltion
- - [ ] CLI: sync transaltion by injecting missing sections
+ - [ ] CLI: generate file for transaltion from base file
+ - [ ] CLI: sync translation by injecting missing sections
 
 ## format
 General format is defined by JSON string injected at the end of each heading, additional brackets are added for less chance of conflict with heading title
