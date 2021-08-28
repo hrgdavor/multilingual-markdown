@@ -32,7 +32,8 @@ general
 ## format
 General format is defined by JSON string injected at the end of each heading, additional brackets are added for less chance of conflict with heading title
  - `id` - id of the section in the original text
- - `h` -md5 checksum of the text
+ - `h` - md5 checksum of the text
+ - `ts` - timestamp when hash was generated and the hashed text id bound to the hash
  - `tid` - in translations it signifies the section is a translation, and value points to `id` of original text
  - `status` - empty/ommited when everything is ok, any other value means something needs to be done (`checkGrammar`,`approve`,`in progress`)
 
