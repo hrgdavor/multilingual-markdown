@@ -7,7 +7,7 @@ general
  - [x] create node project (package.json)
  - [x] CLI: create script with UUID and md5 included [cli tutorial used](https://developer.okta.com/blog/2019/06/18/command-line-app-with-nodejs)
  - [x] CLI: setup first test (test sample text and md5 of it)
- - [ ] Editor: basic edit base file (drag and drop 1 file)
+ - [ ] Editor: basic edit base file (drag and drop 1 file) sections outline, click to edit title and text separately one section at the time
  - [ ] Editor: basic edit translation file (drag and drop 2 files) 
  - [ ] Editor: edit translation file: with diff of changes in base file (drag and drop 2 files) 
  - [ ] CLI: initialize base file (add uuids and hashes)
