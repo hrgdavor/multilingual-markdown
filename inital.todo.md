@@ -21,7 +21,8 @@ general
  - [ ] Editor: publish as github page (docs folder)
  - [ ] CLI: allow automatic pushing code-block changes across translations (if it was unchanged in the translation)
  - [ ] Editor: allow automatic pushing code-block changes across translations (if it was unchanged in the translation)
-
+ - [ ] CLI: lint code sections (or standardx) ... have them included and linted separetely
+ - [ ] Editor: lint code sections
 
 ## format
 General format is defined by JSON string injected at the end of each heading, additional brackets are added for less chance of conflict with heading title
