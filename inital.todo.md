@@ -1,12 +1,14 @@
 # TODO for intital release
 general
  - [x] define inital format
- - [x] hashing rules 
- - [x] uuid lib / func
- - [x] choose hash - MD5(cross platform and cross language) not for security, it is just helping detect changes in text
+ - [x] LIB: hashing rules 
+ - [x] LIB: uuid lib / func
+ - [x] LIB: choose hash - MD5(cross platform and cross language) not for security, it is just helping detect changes in text
  - [x] create node project (package.json)
  - [x] CLI: create script with UUID and md5 included [cli tutorial used](https://developer.okta.com/blog/2019/06/18/command-line-app-with-nodejs)
- - [x] CLI: setup first test (test sample text and md5 of it)
+ - [x] LIB: setup first test (test sample text and md5 of it)
+ - [ ] LIB: sections decoder - read md into obj model
+ - [ ] LIB: sections encoder - write md from obj model
  - [ ] Editor: basic edit base file (drag and drop 1 file) sections outline, click to edit title and text separately one section at the time
  - [ ] Editor: basic edit translation file (drag and drop 2 files) 
  - [ ] Editor: edit translation file: with diff of changes in base file (drag and drop 2 files) 
