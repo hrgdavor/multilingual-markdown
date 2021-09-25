@@ -12,6 +12,7 @@ general
  - [ ] Editor: basic edit base file (drag and drop 1 file) sections outline, click to edit title and text separately one section at the time
  - [ ] Editor: basic edit translation file (drag and drop 2 files) 
  - [ ] Editor: edit translation file: with diff of changes in base file (drag and drop 2 files) 
+ - [ ] LIB: initialize base file (add uuids and hashes)
  - [ ] CLI: initialize base file (add uuids and hashes)
  - [ ] Editor: initialize base file (add uuids and hashes)
  - [ ] CLI: generate file for transaltion from base file
