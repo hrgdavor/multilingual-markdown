@@ -63,6 +63,6 @@ when translation file is created, hash:"" to mark not yet translated.
 ## hashing rules
  - section title JSON data removed before hashing
  - code-block JSON data removed before hashing
- - lines trimmed
- - emtpy lines removed 
+ - lines: timrEnd (trimRight)
+ - emtpy lines removed at the end .... (not sure about this one)
 
