@@ -10,12 +10,12 @@ general
  - [x] LIB: sections parse - read md into obj model
  - [x] LIB: sections stringify - write md from obj model
  - [ ] Editor: basic edit base file (drag and drop 1 file) sections outline, click to edit title and text separately one section at the time
- - [ ] Editor: basic edit translation file (drag and drop 2 files) 
- - [ ] Editor: edit translation file: with diff of changes in base file (drag and drop 2 files) 
  - [ ] LIB: initialize base file (add uuids and hashes)
  - [ ] CLI: initialize base file (add uuids and hashes)
  - [ ] Editor: initialize base file (add uuids and hashes)
  - [ ] CLI: generate file for transaltion from base file
+ - [ ] Editor: basic edit translation file (drag and drop 2 files) 
+ - [ ] Editor: edit translation file: with diff of changes in base file (drag and drop 2 files) 
  - [ ] CLI: sync translation by injecting missing sections
  - [ ] Editor: sync translation by injecting missing sections
  - [ ] CLI-info: script specification (options and actions and infos that it can give)
