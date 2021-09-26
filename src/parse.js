@@ -1,7 +1,7 @@
 
 
 function parse(md, fileName='md'){
-	const lines = md.split('\n')
+	const lines = md.split('\n').map(l=>l.trimEnd())
 	const out = {sections:[]}
 	let section, codeBlock, title, json
 
@@ -36,7 +36,6 @@ function parse(md, fileName='md'){
 				}else{
 					// new code block				
 					title = line.substring(3).trim()
-					console.log('title',title);
 					const idx = title.indexOf('{{')
 					if(idx != -1){
 						json = title.substring(idx+1, title.length-1)
