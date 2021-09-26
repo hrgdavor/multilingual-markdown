@@ -7,8 +7,8 @@ general
  - [x] create node project (package.json)
  - [x] CLI: create script with UUID and md5 included [cli tutorial used](https://developer.okta.com/blog/2019/06/18/command-line-app-with-nodejs)
  - [x] LIB: setup first test (test sample text and md5 of it)
- - [ ] LIB: sections decoder - read md into obj model
- - [ ] LIB: sections encoder - write md from obj model
+ - [x] LIB: sections parse - read md into obj model
+ - [x] LIB: sections stringify - write md from obj model
  - [ ] Editor: basic edit base file (drag and drop 1 file) sections outline, click to edit title and text separately one section at the time
  - [ ] Editor: basic edit translation file (drag and drop 2 files) 
  - [ ] Editor: edit translation file: with diff of changes in base file (drag and drop 2 files) 
