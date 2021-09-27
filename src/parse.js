@@ -3,12 +3,14 @@
 function parse(md, fileName='md'){
 	const lines = md.split('\n').map(l=>l.trimEnd())
 	const out = {sections:[]}
-	let section, codeBlock, title, json
+	let section, codeBlock, title, json, level
 
 	lines.forEach((line,i)=>{
 		let lineNum = i+1
 
 		if(line[0] === '#'){
+			level = 1
+			while(line[level] === '#') level++
 			title = line
 			json = null
 			
@@ -17,7 +19,7 @@ function parse(md, fileName='md'){
 				json = line.substring(idx+1, line.length-1)
 				title = line.substring(0,idx).trim()
 			}
-			section = {title:title, lines:[]}
+			section = {title, lines:[], level}
 			try{
 				if(json) section.info = JSON.parse(json)
 			}catch(e){

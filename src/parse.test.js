@@ -11,6 +11,7 @@ bla bla
 {sections:[
 	{
 		title:"# section",
+		level: 1,
 		lines:[
 			'bla bla',
 			'',
@@ -29,6 +30,7 @@ bla bla
 {sections:[
 	{
 		title:"# section",
+		level: 1,
 		info: {"uuid":"1234"},
 		lines:[
 			'bla bla',
@@ -50,6 +52,7 @@ let x = 1
 {sections:[
 	{
 		title:"# section",
+		level: 1,
 		info: {"uuid":"1234"},
 		lines:[
 			'bla bla',
