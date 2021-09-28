@@ -16,13 +16,13 @@ function toLines(obj, out=[]){
 		obj.sections.forEach(section=>toLines(section,out))
 	}else if(obj.title){
 		let title  = obj.title
-		if(obj.info) title += ' '+JSON.stringify(obj.info)
+		if(obj.info) title += ' {'+JSON.stringify(obj.info)+'}'
 		out.push(title)
 		toLines(obj.lines, out)
 	}else{ // code
 		let code = '```'
 		if(obj.code) code += obj.code
-		if(obj.info) title += ' '+JSON.stringify(obj.info)
+		if(obj.info) title += ' {'+JSON.stringify(obj.info)+'}'
 		out.push(code)
 		toLines(obj.lines, out)
 		out.push('```')
