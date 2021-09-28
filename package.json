@@ -5,7 +5,7 @@
   "main": "bin/index.js",
   "scripts": {
     "test": "ava src/*.test.js",
-    "dev": "http-server doc/editor -p 17086 -o translator.edit.html"
+    "dev": "http-server docs/editor -p 17086 -o translator.edit.html"
   },
   "keywords": [],
   "author": "Davor Hrg",
