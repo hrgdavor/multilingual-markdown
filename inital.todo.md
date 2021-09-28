@@ -9,7 +9,7 @@ general
  - [x] LIB: setup first test (test sample text and md5 of it)
  - [x] LIB: sections parse - read md into obj model
  - [x] LIB: sections stringify - write md from obj model
- - [ ] ... Editor: basic edit base file (drag and drop 1 file) sections outline, click to edit title and text separately one section at the time
+ - [x] Editor: basic edit base file (drag and drop 1 file) sections outline, click to edit title and text separately one section at the time
  - [ ] LIB: initialize base file (add uuids and hashes)
  - [ ] CLI: initialize base file (add uuids and hashes)
  - [ ] Editor: initialize base file (add uuids and hashes)
