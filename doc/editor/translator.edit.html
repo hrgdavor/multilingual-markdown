@@ -1,0 +1,191 @@
+<!doctype html>
+<head>
+	
+<title>Translation editor</title>
+<meta charset="utf-8"/>
+
+<link rel="stylesheet" href="codemirror.css">
+
+<script src="codemirror.js"></script>
+<script src="overlay.js"></script>
+<script src="xml.js"></script>
+<script src="markdown.js"></script>
+<script src="gfm.js"></script>
+<script src="javascript.js"></script>
+<script src="css.js"></script>
+<script src="htmlmixed.js"></script>
+<script src="clike.js"></script>
+<script src="meta.js"></script>
+
+<script src="diff.js"></script>
+<script src="mulmd.min.js"></script>
+<style>
+  body,html{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  body{
+    display: flex;
+  }
+
+  #menu{
+    display: flex;
+    flex-flow: column;
+    flex: 0 0 300px;
+  }
+  #menu a[level="2"]{
+    padding-left: 10px;
+  }
+  #menu a[level="3"]{
+    padding-left: 20px;
+  }
+  #menu a[level="4"]{
+    padding-left: 30px;
+  }
+  #sections,#code{
+    flex: 1 1 0;
+    overflow: auto;
+  }
+  #sections{
+  }
+  #code{
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+  }
+  .CodeMirror{
+    flex:  1;
+    height:  auto;  
+  }
+
+</style>
+</head>
+
+
+<body  ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+
+<div id="dropArea" style="position:fixed; top:0; left:0; width:100%; height:100%;background: rgba(255,255,255,0.5);z-index:99; display: none;"></div>
+
+<div id="menu">menu</div>
+<div id="sections">section</div>
+<div id="code"></div>
+
+</body>
+</html>
+<script>
+  var editor = CodeMirror(document.getElementById("code"), {
+    mode: {
+      name: "gfm",
+      tokenTypeOverrides: {
+        emoji: "emoji"
+      }
+    },
+    lineNumbers: true,
+    theme: "default"
+  });
+</script>
+
+<script type="text/javascript">
+var selectedSection, mdObj
+
+function dropHandler(ev) {
+  console.log('File(s) dropped', ev);
+  ev.preventDefault();
+  showDrop(false)
+  let file
+  if (ev.dataTransfer.items) {
+    // Use DataTransferItemList interface to access the file(s)
+    for (var i = 0; i < ev.dataTransfer.items.length; i++) {
+      // If dropped items aren't files, reject them
+      if (ev.dataTransfer.items[i].kind === 'file') {
+        file = ev.dataTransfer.items[i]
+        if(file.webkitGetAsEntry) 
+          file = file.webkitGetAsEntry()
+        else if(file.getAsEntry) 
+          file = file.getAsEntry()
+        else
+          file = file.webkitGetAsFile()
+        console.log('... item file[' + i + '].name = ' + file.name);
+        break;
+      }
+    }
+  } else {
+    // Use DataTransfer interface to access the file(s)
+    for (var i = 0; i < ev.dataTransfer.files.length; i++) {
+      file = ev.dataTransfer.files[i]
+      console.log('... file[' + i + '].name = ' + file.name);
+      break;
+    }
+  }
+
+  if(file) file.file(function(f){
+    console.log('f',f);
+    var reader = new FileReader()
+    reader.onload = event=>{
+      loadMd(event.target.result)
+    }
+    reader.onerror = event=>console.log('error',event)
+    reader.readAsText(f)
+
+  })
+}
+
+function loadMd(str){
+  mdObj = mulmd.parse(str)
+  console.log('mdObj',mdObj);
+  //editor.setValue(str)
+  let menuHTML = ''
+  if(mdObj){
+    if(mdObj.sections){
+       mdObj.sections.forEach(section=>{
+        // todo use initialize from mulmd
+        let info = section.info = section.info || {uuid:Math.random()}
+        //if(!info) 
+        menuHTML += `<a href="#${info.uuid}" level="${section.level}">${section.title.substring(section.level)}</a>`
+      })
+    }
+  }
+
+  let menu = document.getElementById('menu')
+  menu.innerHTML = menuHTML
+}
+
+function hashchange(){
+  if(!mdObj || !mdObj.sections || !mdObj.sections.length) return
+
+  selectedSection = (document.location.hash || '#').substr(1)
+  if(!fillEditor()){
+    selectedSection = mdObj.sections[0].info.uuid
+    document.location = '#'+selectedSection
+    fillEditor()
+  }
+}
+window.onhashchange = hashchange
+
+function fillEditor(){
+  let found = false
+  mdObj.sections.forEach(section=>{
+    if(selectedSection == section.info.uuid){
+      found = true
+      editor.setValue(mulmd.stringify(section))
+    }
+  })
+  return found
+}
+
+function showDrop(b){
+  document.getElementById('dropArea').style.display = b ? 'initial':'none'
+}
+
+function dragOverHandler(ev) {
+  ev.preventDefault();
+  showDrop(true)
+}
+
+document.body.ondrop=dropHandler
+document.body.ondragover=dragOverHandler
+
+fetch('./parameters.md').then(r=>r.text()).then(loadMd)
+</script>
