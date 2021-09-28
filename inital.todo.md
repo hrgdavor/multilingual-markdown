@@ -10,7 +10,7 @@ general
  - [x] LIB: sections parse - read md into obj model
  - [x] LIB: sections stringify - write md from obj model
  - [x] Editor: basic edit base file (drag and drop 1 file) sections outline, click to edit title and text separately one section at the time
- - [ ] LIB: initialize base file (add uuids and hashes)
+ - [ ] LIB: initialize sections (add uuids and hashes)
  - [ ] CLI: initialize base file (add uuids and hashes)
  - [ ] Editor: initialize base file (add uuids and hashes)
  - [ ] CLI: generate file for transaltion from base file
