@@ -1,6 +1,6 @@
 # multilingual-markdown (mulmd)
 
-initial implementation checklist: [initial.todo.md](initial.todo.md)
+initial implementation checklist: [inital.todo.md](inital.todo.md)
 
 Editor and CLI(called mulmd) for maintaining a set of multilingual markdown(.md) files
 
