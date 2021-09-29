@@ -69,7 +69,7 @@ There is already similar use case for [footnotes](https://www.markdownguide.org/
  - translation is placed as footnote
  - this is mainly meant for comments, but may be even ok to use inside strings
  - when exporting md files one can move translations back to code block and remove from text body
- - just an idea: a fancy version would show an icon for the footnote and show it on hover 
+ - if there is legitimate code inside code-block that would be mistaken for footnote syntax, one could then enforce a prefix for these translation footnotes that would then prevent the conflict with the code
 
 example code block and translation as footnote later
 
