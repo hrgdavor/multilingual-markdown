@@ -19,6 +19,7 @@ general
  - [x] LIB: sections stringify - write md from obj model
  - [x] Editor: basic edit base file (drag and drop 1 file) sections outline, click to edit title and text separately one section at the time
  - [x] LIB: initialize sections (add uuids and hashes)
+ - [x] Editor: publish as github page (docs folder) [test version](https://hrgdavor.github.io/multilingual-markdown/editor/translator.edit.html)
  - [ ] CLI: initialize base file (add uuids and hashes)
  - [ ] Editor: initialize base file (add uuids and hashes)
  - [ ] CLI: generate file for transaltion from base file
@@ -26,14 +27,17 @@ general
  - [ ] Editor: edit translation file: with diff of changes in base file (drag and drop 2 files) 
  - [ ] CLI: sync translation by injecting missing sections
  - [ ] Editor: sync translation by injecting missing sections
- - [ ] CLI-info: script specification (options and actions and infos that it can give)
  - [ ] CLI-pre-commit-hook: script spacification so it can be used to block unfinished edits
- - [ ] use git to compare current file edited with latest `git show HEAD:./filename.txt`
- - [ ] Editor: publish as github page (docs folder)
  - [ ] CLI: allow automatic pushing code-block changes across translations (if it was unchanged in the translation)
  - [ ] Editor: allow automatic pushing code-block changes across translations (if it was unchanged in the translation)
+ - [ ] CLI-info: specification of the script (options and actions and infos that it can give)
+ - [ ] CLI-info: xxx
+ - [ ] CLI-info: yyy
+
+## maybe future
  - [ ] CLI: lint code sections (or standardx) ... have them included and linted separetely
  - [ ] Editor: lint code sections
+ - [ ] use git to compare current file edited with latest `git show HEAD:./filename.txt`
 
 ## format
 General format is defined by JSON string injected at the end of each heading, additional brackets are added for less chance of conflict with heading title
