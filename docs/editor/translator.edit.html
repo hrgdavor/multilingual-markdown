@@ -141,9 +141,9 @@ function loadMd(str){
     if(mdObj.sections){
        mdObj.sections.forEach(section=>{
         // todo use initialize from mulmd
-        let info = section.info = section.info || {uuid:Math.random()}
+        let info = section.info = section.info || {id:Math.random()}
         //if(!info) 
-        menuHTML += `<a href="#${info.uuid}" level="${section.level}">${section.title.substring(section.level)}</a>`
+        menuHTML += `<a href="#${info.id}" level="${section.level}">${section.title.substring(section.level)}</a>`
       })
     }
   }
@@ -157,7 +157,7 @@ function hashchange(){
 
   selectedSection = (document.location.hash || '#').substr(1)
   if(!fillEditor()){
-    selectedSection = mdObj.sections[0].info.uuid
+    selectedSection = mdObj.sections[0].info.id
     document.location = '#'+selectedSection
     fillEditor()
   }
@@ -167,7 +167,7 @@ window.onhashchange = hashchange
 function fillEditor(){
   let found = false
   mdObj.sections.forEach(section=>{
-    if(selectedSection == section.info.uuid){
+    if(selectedSection === section.info.id){
       found = true
       editor.setValue(mulmd.stringify(section))
     }
