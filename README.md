@@ -60,6 +60,28 @@ subtitle text etc
 ## subtitle2 {works also if I use brackets in title} {{"id":"UUID", "h":"md5"}}
 subtitle2 text etc
 ```
+## translations inside code
+
+There is already similar use case for [footnotes](https://www.markdownguide.org/extended-syntax/#footnotes) in general
+
+ - use footnote syntax inside code blocks by placing a footnote reference `[^1]`,`[^2]`,...
+ - code block is then same for all languages and can safely be updated in an automated task across translations
+ - translation is placed as footnote
+ - this is mainly meant for comments, but may be even ok to use inside strings
+ - when exporting md files one can move translations back to code block and remove from text body
+ - just an idea: a fancy version would show an icon for the footnote and show it on hover 
+
+example code block and translation as footnote later
+
+```
+```js {{"id":"UUID", "h":"md5"}}
+|  function code(){// [^1]
+|```
+
+[^1]: Comment for the function that can be translated without changing the code
+
+```
+
 
 UUID and hash is also generated for code sections
 ```
