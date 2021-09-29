@@ -22,7 +22,7 @@ function toLines(obj, out=[]){
 	}else{ // code
 		let code = '```'
 		if(obj.code) code += obj.code
-		if(obj.info) title += ' {'+JSON.stringify(obj.info)+'}'
+		if(obj.info) code += ' {'+JSON.stringify(obj.info)+'}'
 		out.push(code)
 		toLines(obj.lines, out)
 		out.push('```')
