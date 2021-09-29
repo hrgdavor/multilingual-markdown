@@ -74,12 +74,11 @@ There is already similar use case for [footnotes](https://www.markdownguide.org/
 example code block and translation as footnote later
 
 ```
-```js {{"id":"UUID", "h":"md5"}}
+|```js {{"id":"UUID", "h":"md5"}}
 |  function code(){// [^1]
 |```
-
-[^1]: Comment for the function that can be translated without changing the code
-
+|
+|[^1]: Comment for the function that can be translated without changing the code
 ```
 
 
