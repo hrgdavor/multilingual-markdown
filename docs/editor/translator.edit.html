@@ -18,6 +18,7 @@
 <script src="meta.js"></script>
 
 <script src="diff.js"></script>
+<script src="FileSaver.min.js"></script>
 <script src="mulmd.min.js"></script>
 <style>
   body,html{
@@ -30,7 +31,7 @@
     display: flex;
   }
 
-  #menu{
+  #menu, #menuArea{
     display: flex;
     flex-flow: column;
     flex: 0 0 300px;
@@ -44,11 +45,11 @@
   #menu a[level="4"]{
     padding-left: 30px;
   }
-  #sections,#code{
+  #sectionPreview,#code{
     flex: 1 1 0;
     overflow: auto;
   }
-  #sections{
+  #sectionPreview{
   }
   #code{
     display: flex;
@@ -68,9 +69,12 @@
 
 <div id="dropArea" style="position:fixed; top:0; left:0; width:100%; height:100%;background: rgba(255,255,255,0.5);z-index:99; display: none;"></div>
 
-<div id="menu">menu</div>
-<div id="sections">section</div>
+<div id="menuArea">  
+  <div><button onclick="saveFile()">Save</button></div>
+  <div id="menu">menu</div>
+</div>
 <div id="code"></div>
+<div id="sectionPreview">section</div>
 
 </body>
 </html>
@@ -88,7 +92,7 @@
 </script>
 
 <script type="text/javascript">
-var selectedSection, mdObj
+var selectedSection, mdObj, loadedFile
 
 function dropHandler(ev) {
   console.log('File(s) dropped', ev);
@@ -130,18 +134,21 @@ function dropHandler(ev) {
     reader.readAsText(f)
 
   })
+  loadedFile = file
 }
 
+let seq = 0;
 function loadMd(str){
   mdObj = mulmd.parse(str)
   console.log('mdObj',mdObj);
   //editor.setValue(str)
   let menuHTML = ''
   if(mdObj){
+    mulmd.init(mdObj)
     if(mdObj.sections){
        mdObj.sections.forEach(section=>{
         // todo use initialize from mulmd
-        let info = section.info = section.info || {id:Math.random()}
+        let info = section.info = section.info || {id:Math.random()+(seq++)+''}
         //if(!info) 
         menuHTML += `<a href="#${info.id}" level="${section.level}">${section.title.substring(section.level)}</a>`
       })
@@ -182,6 +189,25 @@ function showDrop(b){
 function dragOverHandler(ev) {
   ev.preventDefault();
   showDrop(true)
+}
+
+async function saveFile(){
+  if(loadedFile){
+    let text = mulmd.stringify(mdObj)
+    let data = new Blob([text], { type: "text/plain" });
+    const writable = await loadedFile.createWriter(fileWriter=>{
+      // if(fileWriter.error){
+        saveAs(data, loadedFile.name)
+      // }else{    
+        // fileWriter.write(data);
+      // }
+    },
+    err=>console.log('error writing ',err)
+    );
+    console.log('done');
+  }else{
+    console.log('not writable');
+  }
 }
 
 document.body.ondrop=dropHandler

@@ -21,7 +21,7 @@ general
  - [x] LIB: initialize sections (add uuids and hashes)
  - [x] Editor: publish as github page (docs folder) [test version](https://hrgdavor.github.io/multilingual-markdown/editor/translator.edit.html)
  - [x] CLI: initialize base file (add uuids and hashes) `mulmd init docs/editor/parameters.md`
- - [ ] Editor: initialize base file (add uuids and hashes)
+ - [x] Editor: initialize base file (add uuids and hashes)
  - [ ] CLI: generate file for transaltion from base file
  - [ ] Editor: basic edit translation file (drag and drop 2 files) 
  - [ ] Editor: edit translation file: with diff of changes in base file (drag and drop 2 files) 
