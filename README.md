@@ -30,6 +30,7 @@ general
  - [ ] CLI-pre-commit-hook: script spacification so it can be used to block unfinished edits
  - [ ] CLI: allow automatic pushing code-block changes across translations (if it was unchanged in the translation)
  - [ ] Editor: allow automatic pushing code-block changes across translations (if it was unchanged in the translation)
+ - [ ] Editor: [electron app](https://dev.to/erikhofer/build-and-publish-a-multi-platform-electron-app-on-github-3lnd)
  - [ ] CLI-info: specification of the script (options and actions and infos that it can give)
  - [ ] CLI-info: xxx
  - [ ] CLI-info: yyy
