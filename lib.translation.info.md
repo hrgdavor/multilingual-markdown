@@ -40,7 +40,7 @@ In both cases of restoring, **base** sould be marked as not translated `{..."sou
 
 This initial situation when translation file is generated and translations not started yet
 
-## Case 4 - `initialized-dirty` (auto fix)
+## Case 4 - `initialized-dirty` (can auto fix)
 
 - **base != copy** && **copy == trans**
 
@@ -48,13 +48,13 @@ This initial situation when translation file is generated and translations not s
 
 This can be auto-fixed because not translation is done yet by updating `copy` to get back to **initialized** state.
 
-## Case 5 - `partial` (translate)
+## Case 5 - `partial` (finish translating)
 
 - **base==copy** && **copy percent% trans**
 
 Text is only partially translated. This can not be recognized automatically, but must be marked by user in the JSON data via `"trans":"50%"`
 
-## Case 6 - `partial-dirty` (translate+diff)
+## Case 6 - `partial-dirty` (finish translating + use diff)
 
 - **base != copy** && **copy percent% trans**
 
@@ -62,7 +62,7 @@ Marked by user  as partially translated, but also in the meantime original has c
 
 This is handled the same way as **translated-dirty** because it does not matter how much is translated, user must finish the translation manually(see: Case 7).
 
-## Case 7 - `translated-dirty` (translate+diff)
+## Case 7 - `translated-dirty` (translate again + use diff)
 
 - **base != copy** && **copy 100% trans**
 
