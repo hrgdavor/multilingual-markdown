@@ -22,7 +22,16 @@ general
  - [x] Editor: publish as github page (docs folder) [test version](https://hrgdavor.github.io/multilingual-markdown/editor/translator.edit.html)
  - [x] CLI: initialize base file (add uuids and hashes) `mulmd init docs/editor/parameters.md`
  - [x] Editor: initialize base file (add uuids and hashes)
- - [ ] CLI: generate file for transaltion from base file
+ - [ ] LIB: translation info 
+   - [ ] `missing-translation`
+   - [ ] `missing-original`
+   - [ ] `initialized `
+   - [ ] `initialized-dirty`
+   - [ ] `partial`
+   - [ ] `partial-dirty`
+   - [ ]  `translated-dirty `
+   - [ ]  `translated`
+ - [ ] CLI: generate file for translation from base file
  - [ ] Editor: basic edit translation file (drag and drop 2 files) 
  - [ ] Editor: edit translation file: with diff of changes in base file (drag and drop 2 files) 
  - [ ] CLI: sync translation by injecting missing sections
@@ -35,7 +44,9 @@ general
  - [ ] CLI-info: xxx
  - [ ] CLI-info: yyy
 
-## translation info (CLI and Editor)
+
+
+## LIB: translation info (CLI and Editor)
 
 When a translation file is opened it can be used alone to finish current translation, text from original file is included with all sections at last updated revision with the checksum and id. That way if section in original changes later, we know that translation needs to be updated. 
 
