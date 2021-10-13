@@ -22,18 +22,19 @@ general
  - [x] Editor: publish as github page (docs folder) [test version](https://hrgdavor.github.io/multilingual-markdown/editor/translator.edit.html)
  - [x] CLI: initialize base file (add uuids and hashes) `mulmd init docs/editor/parameters.md`
  - [x] Editor: initialize base file (add uuids and hashes)
- - [ ] LIB: translation info 
-   - [ ] `missing-translation`
-   - [ ] `missing-original`
-   - [ ] `initialized `
-   - [ ] `initialized-dirty`
-   - [ ] `partial`
-   - [ ] `partial-dirty`
-   - [ ]  `translated-dirty `
-   - [ ]  `translated`
  - [ ] CLI: generate file for translation from base file
- - [ ] Editor: basic edit translation file (drag and drop 2 files) 
- - [ ] Editor: edit translation file: with diff of changes in base file (drag and drop 2 files) 
+ - [ ] Editor: generate file for translation from base file
+ - [ ] LIB: translation info 
+   - [ ] Case 1 - `missing-translation`
+   - [ ] Case 2 - `missing-original`
+   - [ ] Case 3 - `initialized `
+   - [ ] Case 4 - `initialized-dirty`
+   - [ ] Case 5 - `partial`
+   - [ ] Case 6 - `partial-dirty`
+   - [ ]  Case 7 - `translated-dirty `
+   - [ ]  Case 8 - `translated`
+ - [ ] Editor: basic edit translation file (drag and drop 2 files, together or 1 by 1) 
+ - [ ] Editor: edit translation file: with diff of changes in base file (drag and drop 2 files, together or 1 by 1) 
  - [ ] CLI: sync translation by injecting missing sections
  - [ ] Editor: sync translation by injecting missing sections
  - [ ] CLI-pre-commit-hook: script spacification so it can be used to block unfinished edits
@@ -67,26 +68,26 @@ in case that translation has malformed data by not having both `copy` and `trans
 
 
 
-### Case 1 missing-translation
+### Case 1 `missing-translation`
 
 - `base` `missing copy`
 
 A new section was added to base file that is not present in translation file
 
-### Case 2 missing-original
+### Case 2 `missing-original`
 
 - `missing base` `trans  `  - translation has new unmarked section, this should be handled by creating a section in base file and initializing the both. This is a very special case when users mistakenly add content to some language before adding to base. 
 -  `copy percent% trans` - translation has a section with UUID but is no longer present in base. user can choose to bring back the section to base somehow, or delete the section in translation document.
 
 In both cases of restoring, **base** would be marked as not translated `{..."source":"trans.file.name.md", "trans":"0%"...}`. 
 
-### Case 3 - initialized (translate)
+### Case 3 - `initialized` (translate)
 
 - `base==copy` `copy==trans`
 
 This initial situation when translation file is generated and translations not started yet
 
-### Case 4 - initialized-dirty (auto fix)
+### Case 4 - `initialized-dirty` (auto fix)
 
 - `base!=copy` && `copy==trans`
 
@@ -94,13 +95,13 @@ This initial situation when translation file is generated and translations not s
 
 This can be auto-fixed because not translation is done yet by updating `copy` to get back to **initialized** state.
 
-### Case 5 - partial (translate)
+### Case 5 - `partial` (translate)
 
 - `base==copy` && `copy percent% trans`
 
 Text is only partially translated. This can not be recognized automatically, but must be marked by user in the JSON data via `"trans":"50%"`
 
-### Case 6 - partial-dirty (translate+diff)
+### Case 6 - `partial-dirty` (translate+diff)
 
 - `base!=copy` && `copy percent% trans`
 
@@ -108,7 +109,7 @@ Marked by user  as partially translated, but also in the meantime original has c
 
 This is handled the same way as **translated-dirty** because it does not matter how much is translated, user must finish the translation manually(see: Case 7).
 
-### Case 7 - translated-dirty (translate+diff)
+### Case 7 - `translated-dirty` (translate+diff)
 
 - `base!=copy` && `copy 100% trans`
 
@@ -116,9 +117,11 @@ Original has changed since translation was done.
 
 It does not matter how much is translated, user must finish the translation manually. Editor should display diff for `base/copy` so translator can focus on the changes. It could be that a typo is fixed in the original, and the translation is ok without changing at all. It could be few sentences were changed or added, and the editor can help the user focus on changes by displaying the diff.
 
+### Case 8 - `translated` 
+
+When translated completely and up-to-date.
 
 
-### 
 
 
 
