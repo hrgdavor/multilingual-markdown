@@ -31,8 +31,8 @@ general
    - [ ] Case 4 - `initialized-dirty`
    - [ ] Case 5 - `partial`
    - [ ] Case 6 - `partial-dirty`
-   - [ ]  Case 7 - `translated-dirty `
-   - [ ]  Case 8 - `translated`
+   - [ ] Case 7 - `translated-dirty `
+   - [ ] Case 8 - `translated`
  - [ ] Editor: basic edit translation file (drag and drop 2 files, together or 1 by 1) 
  - [ ] Editor: edit translation file: with diff of changes in base file (drag and drop 2 files, together or 1 by 1) 
  - [ ] CLI: sync translation by injecting missing sections
