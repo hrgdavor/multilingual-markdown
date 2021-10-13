@@ -15,27 +15,51 @@ const argv = process.argv.slice(2)
 // console.log(chalk.green('UUID'), UUID())
 // console.log(chalk.green('md5 hello'), md5('hello'))
 
-
-console.log('argv',argv)
-
 if(!argv.length || argv[0] === '--help'){
-	printHelp()
+	argv.shift()
+	if(argv[0])
+		doHelp(argv)
+	else
+		printHelp()
 }else{
 	let cmd = argv.shift()
 
 	if(cmd === 'init'){
 		doInit(argv)
 	} 
+
+	if(cmd === 'help'){
+		doHelp(argv)
+	} 
 }
 
 
 function printHelp(){
-console.log(`
-mulmd {command} [params...]
+console.log(chalk`
+{yellow mulmd {green command} [params...]}
 
-mulmd init fileName
+   {green init} - initialize a file (and optionaly a translation)
+
+{yellow mulmd help {green command}}
+{yellow mulmd --help {green command}}
+   - get details for a command
 
 `);	
+}
+
+function doHelp(argv){
+
+if(argv[0] === 'init') console.log(chalk`
+{yellow mulmd {green init} fileName.md}
+  - initialize a base file
+
+{yellow mulmd {green init} fileName.md fileName.lang.md}
+  - initialize a base file if needed and generate translation file with sections
+  - can also be used to update translation when new sections are added to base
+
+`);	
+
+
 }
 
 
