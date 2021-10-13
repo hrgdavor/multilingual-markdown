@@ -24,7 +24,7 @@ general
  - [x] Editor: initialize base file (add uuids and hashes)
  - [ ] CLI: generate file for translation from base file
  - [ ] Editor: generate file for translation from base file
- - [ ] LIB: translation info ([details](lib.translation.info.md]))
+ - [ ] LIB: translation info ([details](lib.translation.info.md))
    - [ ] Case 1 - `missing-translation`
    - [ ] Case 2 - `missing-original`
    - [ ] Case 3 - `initialized `
