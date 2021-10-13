@@ -32,7 +32,7 @@ A new section was added to base file that is not present in translation file
 
 In both cases of restoring, **base** would be marked as not translated `{..."source":"trans.file.name.md", "trans":"0%"...}`. 
 
-# Case 3 - `initialized` (translate)
+## Case 3 - `initialized` (translate)
 
 - `base==copy` `copy==trans`
 
