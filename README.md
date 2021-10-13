@@ -54,11 +54,12 @@ general
 
 ## format
 General format is defined by JSON string injected at the end of each heading, additional brackets are added for less chance of conflict with heading title
- - `id` - id of the section in the original text
+ - `id` - id of the section
  - `h` - md5 checksum of the text
  - `ts` - timestamp when hash was generated and the hashed text id bound to the hash
- - `tid` - in translations it signifies the section is a translation, and value points to `id` of original text
- - `status` - empty/ommited when everything is ok, any other value means something needs to be done (`checkGrammar`,`approve`,`in progress`)
+ - `tid` - in translations it signifies the section is a **copy** of **base** section, and value points to `id` section in **base** file. This type of section is not to be exported as it is part of the file only for keeping track of the changes.
+ - `trans` - for translated section is percentage of translation done
+ - `status` - empty/ommited when everything is ok, any other value means something more needs to be done (`checkGrammar`,`approve`,`in progress`). This is not part of this tool, but is a proposal for further more complex management of the sections
 
 Other utilities may inject more properties in the JSON, so editor should not  clear them.
 
