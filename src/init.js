@@ -14,7 +14,6 @@ function doInit(UUID, nowFunc, mdObj){
 
 function initSection(UUID, nowFunc, section){
 	if(section && section.lines){
-		console.log('section',section);
 		section.lines.forEach(line=>{
 			if(typeof line !== 'string') 
 				initSection(UUID, nowFunc, line)

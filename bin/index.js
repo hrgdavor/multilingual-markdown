@@ -10,11 +10,6 @@ const stringify = require('../src/stringify.js')
 
 const argv = process.argv.slice(2)
 
-// console.log(chalk.green('Hello! multilingual-markdown'))
-
-// console.log(chalk.green('UUID'), UUID())
-// console.log(chalk.green('md5 hello'), md5('hello'))
-
 if(!argv.length || argv[0] === '--help'){
 	argv.shift()
 	if(argv[0])
@@ -70,5 +65,19 @@ function doInit(argv){
 		init(mdObj)
 		let out = stringify(mdObj)
 		fs.writeFileSync(argv[0], out)
+
+		if(argv[1] && argv[1] !== argv[0]){
+			let sections = []
+			mdObj.sections.forEach(s=>{
+				let trans = {...s}
+				trans.info = {t:true, ...s.info}
+				sections.push(trans)
+				sections.push(s)
+			})
+			let mdObj2 = {...mdObj, sections}
+
+			out = stringify(mdObj2)
+			fs.writeFileSync(argv[1], out)
+		}
 	}
 }

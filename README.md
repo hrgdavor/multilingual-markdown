@@ -22,7 +22,7 @@ general
  - [x] Editor: publish as github page (docs folder) [test version](https://hrgdavor.github.io/multilingual-markdown/editor/translator.edit.html)
  - [x] CLI: initialize base file (add uuids and hashes) `mulmd init docs/editor/parameters.md`
  - [x] Editor: initialize base file (add uuids and hashes)
- - [ ] CLI: generate file for translation from base file
+ - [x] CLI: generate file for translation from base file `mulmd init file.md file.fr.md`
  - [ ] Editor: generate file for translation from base file
  - [ ] LIB: translation info ([details](lib.translation.info.md))
    - [ ] Case 1 - `missing-translation`
