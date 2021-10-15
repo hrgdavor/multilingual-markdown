@@ -5,6 +5,7 @@
   "main": "bin/index.js",
   "scripts": {
     "test": "ava src/*.test.js",
+    "buildedit": "esbuild index.js --outfile=docs/editor/mulmd.min.js --bundle --sourcemap=inline --format=iife --global-name=mulmd",
     "dev": "http-server docs/editor -p 17086 -o translator.edit.html"
   },
   "keywords": [],

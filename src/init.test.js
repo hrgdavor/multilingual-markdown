@@ -1,6 +1,6 @@
 const test = require('ava')
 
-const init = require('./init')
+const { init, doInit } = require('./init')
 
 const makeUuidFunc = ()=>{
 	let seq = 1
@@ -10,7 +10,7 @@ const nowFunc = ()=>1632822125000
 
 
 test('simple section', (t) => {
-	t.deepEqual(init.doInit(makeUuidFunc(),nowFunc, 
+	t.deepEqual(doInit(makeUuidFunc(),nowFunc, 
 {sections:[
 	{
 		title:"# section",

@@ -5,6 +5,19 @@ function init(mdObj){
 	doInit(UUID, ()=>Date.now(),mdObj)
 }
 
+function initTrans(mdObj){
+	let sections = []
+	
+	mdObj.sections.forEach(s=>{
+		let trans = {...s}
+		trans.info = {t:true, ...s.info}
+		sections.push(trans)
+		sections.push(s)
+	})
+
+	return {...mdObj, sections}
+}
+
 function doInit(UUID, nowFunc, mdObj){
 	if(mdObj && mdObj.sections)
 		mdObj.sections.forEach(section=>initSection(UUID, nowFunc, section))
@@ -28,6 +41,4 @@ function initSection(UUID, nowFunc, section){
 	return section
 }
 
-init.doInit = doInit
-
-module.exports = init
+module.exports = { init, doInit, initTrans }

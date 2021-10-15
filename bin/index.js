@@ -4,7 +4,7 @@ const fs = require('fs')
 const chalk = require('chalk')
 const UUID = require('../src/UUID.js')
 const md5 = require('../src/md5.js')
-const init = require('../src/init.js')
+const { init,initTrans } = require('../src/init.js')
 const parse = require('../src/parse.js')
 const stringify = require('../src/stringify.js')
 
@@ -67,17 +67,9 @@ function doInit(argv){
 		fs.writeFileSync(argv[0], out)
 
 		if(argv[1] && argv[1] !== argv[0]){
-			let sections = []
-			mdObj.sections.forEach(s=>{
-				let trans = {...s}
-				trans.info = {t:true, ...s.info}
-				sections.push(trans)
-				sections.push(s)
-			})
-			let mdObj2 = {...mdObj, sections}
-
+			let mdObj2 = initTrans(mdObj)
 			out = stringify(mdObj2)
 			fs.writeFileSync(argv[1], out)
 		}
 	}
-}
+}	
