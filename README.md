@@ -23,7 +23,7 @@ general
  - [x] CLI: initialize base file (add uuids and hashes) `mulmd init docs/editor/parameters.md`
  - [x] Editor: initialize base file (add uuids and hashes)
  - [x] CLI: generate file for translation from base file `mulmd init file.md file.fr.md`
- - [ ] Editor: generate file for translation from base file
+ - [x] Editor: generate file for translation from base file
  - [ ] LIB: translation info ([details](lib.translation.info.md))
    - [ ] Case 1 - `missing-translation`
    - [ ] Case 2 - `missing-original`
