@@ -19,5 +19,8 @@
   },
   "devDependencies": {
     "ava": "^3.15.0"
+  },
+  "multilingual-markdown": {
+    "codeSectionMeta": true
   }
 }

@@ -24,6 +24,9 @@ general
  - [x] Editor: initialize base file (add uuids and hashes)
  - [x] CLI: generate file for translation from base file `mulmd init file.md file.fr.md`
  - [x] Editor: generate file for translation from base file
+ - [ ] LIB: optional section info for code blocks
+ - [ ] CLI: rad package.json for option (like one above)
+ - [ ] Editor: ask option: section info for code blocks
  - [ ] LIB: clean metadata, and **copy** sections (after that serialize produces normal MD file for publishing)
  - [ ] CLI: export clean file
  - [ ] CLI: export clean folder
@@ -61,8 +64,10 @@ General format is defined by JSON string injected at the end of each heading, ad
  - `id` - id of the section
  - `h` - md5 checksum of the text
  - `ts` - timestamp when hash was generated and the hashed text id bound to the hash
- - `t` - `=true` in translations it signifies the section is a **copy** of **base** section, and `id` is same as `id` section in **base** file. This type of section is not to be exported as it is part of the file only for keeping track of the changes.
- - `trans` - for translated section is percentage of translation done
+ - `trans` - for translated section is percentage of translation done 
+   - `-1` - for original file
+   - `-2`  - for copy (the copied section in) this type of section is not to be exported as it is part of the file only for keeping track of the changes.
+   - `0-99` - for translation
  - `status` - empty/ommited when everything is ok, any other value means something more needs to be done (`checkGrammar`,`approve`,`in progress`). This is not part of this tool, but is a proposal for further more complex management of the sections
 
 Other utilities may inject more properties in the JSON, so editor should not  clear them.

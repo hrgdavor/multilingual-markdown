@@ -27,7 +27,7 @@ test('simple section', (t) => {
       {
         title: '# section',
         level: 1,
-        info: { id: 'test-uuid1', ts: 1632822125000, h: 'e30de02eccf91367b0310f2814bb0d72' },
+        info: { "trans":-1, id: 'test-uuid1', ts: 1632822125000, h: 'e30de02eccf91367b0310f2814bb0d72' },
         lines: [
           'bla bla',
           ''

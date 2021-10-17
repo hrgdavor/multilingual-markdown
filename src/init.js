@@ -10,7 +10,7 @@ function initTrans (mdObj) {
 
   mdObj.sections.forEach(s => {
     const trans = { ...s }
-    trans.info = { t: true, ...s.info }
+    trans.info = { t: true, ...s.info, trans:0 }
     sections.push(trans)
     sections.push(s)
   })
@@ -34,6 +34,7 @@ function initSection (UUID, nowFunc, section) {
     if (!info.ts) info.ts = nowFunc()
     if (!info.id) info.id = UUID()
     if (!info.h) info.h = sectionMd5(section)
+    if (!('trans' in info)) info.trans = -1
   }
 
   return section
