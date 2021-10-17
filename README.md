@@ -24,10 +24,10 @@ general
  - [x] Editor: initialize base file (add uuids and hashes)
  - [x] CLI: generate file for translation from base file `mulmd init file.md file.fr.md`
  - [x] Editor: generate file for translation from base file
+ - [x] LIB: clean metadata, and **copy** sections (after that serialize produces normal MD file for publishing)
  - [ ] LIB: optional section info for code blocks
  - [ ] CLI: rad package.json for option (like one above)
  - [ ] Editor: ask option: section info for code blocks
- - [ ] LIB: clean metadata, and **copy** sections (after that serialize produces normal MD file for publishing)
  - [ ] CLI: export clean file
  - [ ] CLI: export clean folder
  - [ ] Editor: export clean file (MD without medatada)
