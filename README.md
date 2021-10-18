@@ -25,7 +25,7 @@ general
  - [x] CLI: generate file for translation from base file `mulmd init file.md file.fr.md`
  - [x] Editor: generate file for translation from base file
  - [x] LIB: clean metadata, and **copy** sections (after that serialize produces normal MD file for publishing)
- - [ ] LIB: optional section info for code blocks
+ - [x] LIB: optional section info for code blocks
  - [ ] CLI: rad package.json for option (like one above)
  - [ ] Editor: ask option: section info for code blocks
  - [ ] CLI: export clean file

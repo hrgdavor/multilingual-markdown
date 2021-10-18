@@ -1,11 +1,11 @@
 const UUID = require('./UUID')
 const sectionMd5 = require('./sectionMd5')
 
-function init (mdObj) {
-  doInit(UUID, () => Date.now(), mdObj)
+function init (options, mdObj) {
+  doInit(options, UUID, () => Date.now(), mdObj)
 }
 
-function initTrans (mdObj) {
+function initTrans ({codeSectionMeta}, mdObj) {
   const sections = []
 
   mdObj.sections.forEach(s => {
@@ -18,23 +18,26 @@ function initTrans (mdObj) {
   return { ...mdObj, sections }
 }
 
-function doInit (UUID, nowFunc, mdObj) {
-  if (mdObj && mdObj.sections) { mdObj.sections.forEach(section => initSection(UUID, nowFunc, section)) }
+function doInit (options, UUID, nowFunc, mdObj) {
+  if (mdObj && mdObj.sections) { mdObj.sections.forEach(section => initSection(options, false,UUID, nowFunc, section)) }
 
   return mdObj
 }
 
-function initSection (UUID, nowFunc, section) {
+function initSection (options, isCode, UUID, nowFunc, section) {
   if (section && section.lines) {
     section.lines.forEach(line => {
-      if (typeof line !== 'string') { initSection(UUID, nowFunc, line) }
+      if (typeof line !== 'string') { initSection( options, true, UUID, nowFunc, line) }
     })
+    let { codeSectionMeta } = options
 
-    const info = section.info = section.info || {}
-    if (!info.ts) info.ts = nowFunc()
-    if (!info.id) info.id = UUID()
-    if (!info.h) info.h = sectionMd5(section)
-    if (!('trans' in info)) info.trans = -1
+    if(!isCode || codeSectionMeta ){
+      const info = section.info = section.info || {}
+      if (!info.ts) info.ts = nowFunc()
+      if (!info.id) info.id = UUID()
+      if (!info.h) info.h = sectionMd5(section)
+      if (!('trans' in info)) info.trans = -1
+    }
   }
 
   return section
