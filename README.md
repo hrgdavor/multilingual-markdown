@@ -26,7 +26,8 @@ general
  - [x] Editor: generate file for translation from base file
  - [x] LIB: clean metadata, and **copy** sections (after that serialize produces normal MD file for publishing)
  - [x] LIB: optional section info for code blocks
- - [ ] CLI: rad package.json for option (like one above)
+ - [x] DOC: define/document options that can be used in CLI via package.json or as argument
+ - [ ] CLI: read package.json for options (like the one above)
  - [ ] Editor: ask option: section info for code blocks
  - [ ] CLI: export clean file
  - [ ] CLI: export clean folder
