@@ -1,5 +1,5 @@
 
-function clean (mdObj) {
+export default function clean (mdObj) {
   return doClean(mdObj)
 }
 
@@ -19,5 +19,3 @@ function doClean (obj) {
   }
   return obj
 }
-
-module.exports = clean

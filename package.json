@@ -1,5 +1,6 @@
 {
   "name": "multilingual-markdown",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "bin/index.js",
@@ -18,9 +19,15 @@
     "chalk": "^4.1.2"
   },
   "devDependencies": {
-    "ava": "^3.15.0"
+    "ava": "^3.15.0",
+    "esm": "^3.2.25"
   },
   "multilingual-markdown": {
     "codeSectionMeta": true
+  },
+  "ava": {
+    "require": [
+      "esm"
+    ]
   }
 }

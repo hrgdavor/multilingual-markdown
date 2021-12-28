@@ -1,9 +1,7 @@
-module.exports = {
-	md5: require('./src/md5'),
-	UUID: require('./src/UUID'),
-	parse: require('./src/parse'),
-	clean: require('./src/clean'),
-	stringify: require('./src/stringify'),
-	sectionMd5: require('./src/sectionMd5'),
-	...require('./src/init'),
-}
+export { default as md5 } from './src/md5'
+export { default as UUID } from './src/UUID'
+export { default as parse } from './src/parse'
+export { default as clean } from './src/clean'
+export { default as stringify } from './src/stringify'
+export { default as sectionMd5 } from './src/sectionMd5'
+export * from './src/init'

@@ -1,5 +1,5 @@
 
-function stringify (mdObj, fileName = 'md') {
+export default function stringify (mdObj, fileName = 'md') {
   return toLines(mdObj, []).join('\n')
 }
 
@@ -28,5 +28,3 @@ function toLines (obj, out = []) {
 }
 
 stringify.toLines = toLines
-
-module.exports = stringify

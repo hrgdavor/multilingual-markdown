@@ -1,7 +1,7 @@
-const test = require('ava')
+import test from 'ava'
 
-const parse = require('./parse')
-const stringify = require('./stringify')
+import { default as parse } from './parse.js'
+import { default as stringify } from './stringify.js'
 
 test('simple section', (t) => {
   let obj, text

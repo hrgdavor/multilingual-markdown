@@ -1,27 +1,31 @@
-const UUID = require('./UUID')
-const sectionMd5 = require('./sectionMd5')
+import { default as UUID }  from './UUID.js'
+import { default as sectionMd5 } from './sectionMd5.js'
 
-function init (options, mdObj) {
+export function init (options, mdObj) {
   doInit(options, UUID, () => Date.now(), mdObj)
 }
 
-function initTrans ({codeSectionMeta}, mdObj) {
-  const sections = []
+export function initTrans({ codeSectionMeta }, mdObj) {
+  const sections = [];
 
-  mdObj.sections.forEach(s => {
-    const trans = { ...s }
-    trans.info = { t: true, ...s.info, trans:0 }
-    sections.push(trans)
-    sections.push(s)
-  })
+  mdObj.sections.forEach((s) => {
+    const trans = { ...s };
+    trans.info = { t: true, ...s.info, trans: 0 };
+    sections.push(trans);
+    sections.push(s);
+  });
 
-  return { ...mdObj, sections }
+  return { ...mdObj, sections };
 }
 
-function doInit (options, UUID, nowFunc, mdObj) {
-  if (mdObj && mdObj.sections) { mdObj.sections.forEach(section => initSection(options, false,UUID, nowFunc, section)) }
+export function doInit(options, UUID, nowFunc, mdObj) {
+  if (mdObj && mdObj.sections) {
+    mdObj.sections.forEach((section) =>
+      initSection(options, false, UUID, nowFunc, section)
+    );
+  }
 
-  return mdObj
+  return mdObj;
 }
 
 function initSection (options, isCode, UUID, nowFunc, section) {
@@ -42,5 +46,3 @@ function initSection (options, isCode, UUID, nowFunc, section) {
 
   return section
 }
-
-module.exports = { init, doInit, initTrans }

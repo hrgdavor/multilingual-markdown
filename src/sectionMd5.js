@@ -1,6 +1,6 @@
-const md5 = require('./md5')
+import { default as md5 } from './md5.js'
 
-function sectionMd5 (section) {
+export default function sectionMd5 (section) {
   const lines = [section.title || section.code || '']
   section.lines.forEach(line => {
     if (typeof line === 'string') { 
@@ -17,5 +17,3 @@ function sectionMd5 (section) {
  
   return md5(lines.join('\n'))
 }
-
-module.exports = sectionMd5

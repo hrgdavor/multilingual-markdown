@@ -1,7 +1,7 @@
 
 // stackoverflow https://stackoverflow.com/questions/1655769/fastest-md5-implementation-in-javascript
 
-function md5 (inputString) {
+export default function md5 (inputString) {
   const hc = '0123456789abcdef'
   function rh (n) { let j; let s = ''; for (j = 0; j <= 3; j++) s += hc.charAt((n >> (j * 8 + 4)) & 0x0F) + hc.charAt((n >> (j * 8)) & 0x0F); return s }
   function ad (x, y) { const l = (x & 0xFFFF) + (y & 0xFFFF); const m = (x >> 16) + (y >> 16) + (l >> 16); return (m << 16) | (l & 0xFFFF) }
@@ -44,5 +44,3 @@ function md5 (inputString) {
   }
   return rh(a) + rh(b) + rh(c) + rh(d)
 }
-
-module.exports = md5

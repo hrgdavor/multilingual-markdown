@@ -1,5 +1,5 @@
 
-function parse (md, fileName = 'md') {
+export default function parse (md, fileName = 'md') {
   const lines = md.split('\n').map(l => l.trimEnd())
   const out = { sections: [] }
   let section, codeBlock, title, json, level
@@ -55,5 +55,3 @@ function parse (md, fileName = 'md') {
   })
   return out
 }
-
-module.exports = parse

@@ -3,7 +3,7 @@ const nodejsVariant = () => {
   return Math.round((a * 1000) + (b / 1000000))
 }
 
-const UUID = () => {
+export default function() {
   let d = Date.now()
   // eslint-disable-next-line
   let d2 = (typeof performance !== 'undefined' && performance.now && (performance.now() * 1000)) || nodejsVariant()
@@ -19,5 +19,3 @@ const UUID = () => {
     return (c === 'x' ? r : (r & 0x7 | 0x8)).toString(16)
   })
 }
-
-module.exports = UUID

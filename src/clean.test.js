@@ -1,6 +1,5 @@
-const test = require('ava')
-
-const clean = require('./clean')
+import test from 'ava'
+import { default as clean } from './clean.js'
 
 test('simple section', (t) => {
   t.deepEqual(clean(

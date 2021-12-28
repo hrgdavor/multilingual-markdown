@@ -27,6 +27,7 @@ general
  - [x] LIB: clean metadata, and **copy** sections (after that serialize produces normal MD file for publishing)
  - [x] LIB: optional section info for code blocks
  - [x] DOC: define/document options that can be used in CLI via package.json or as argument
+ - [x] ALL: convert to ESM
  - [ ] CLI: read package.json for options (like the one above)
  - [ ] Editor: ask option: section info for code blocks
  - [ ] CLI: export clean file
@@ -53,6 +54,8 @@ general
  - [ ] CLI-info: xxx
  - [ ] CLI-info: yyy
 
+
+# package.json
 
 
 ## maybe future
