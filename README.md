@@ -28,7 +28,7 @@ general
  - [x] LIB: optional section info for code blocks
  - [x] DOC: define/document options that can be used in CLI via package.json or as argument
  - [x] ALL: convert to ESM
- - [ ] CLI: read package.json for options (like the one above)
+ - [x] CLI: read package.json for options (like the one above)
  - [ ] Editor: ask option: section info for code blocks
  - [ ] CLI: export clean file
  - [ ] CLI: export clean folder

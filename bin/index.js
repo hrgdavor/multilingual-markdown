@@ -7,6 +7,7 @@ import { default as chalk } from 'chalk'
 import { init,initTrans } from '../src/init.js'
 import { default as parse } from '../src/parse.js'
 import { default as stringify } from '../src/stringify.js'
+import {findUpSync} from 'find-up'
 
 const argv = process.argv.slice(2)
 
@@ -21,6 +22,8 @@ if(!argv.length || argv[0] === '--help'){
 
 	if(cmd === 'init'){
 		doInit(argv)
+	}else if(cmd === 'info'){
+		doInfo(argv)
 	}else if(cmd === 'help'){
 		doHelp(argv)
 	}else{
@@ -81,4 +84,29 @@ function doInit(argv){
 			fs.writeFileSync(argv[1], out)
 		}
 	}
-}	
+}
+
+function doInfo(argv){
+	console.log(getSettings(argv[0]))
+}
+
+function getSettings(cwd){
+	let pjsonFile = findUpSync('package.json',{cwd}) 
+	let config = {}
+	if(pjsonFile){
+		let data = fs.readFileSync(pjsonFile)
+		data = data.toString('utf-8')
+		
+		// Remove a possible UTF-8 BOM (byte order marker) as this can lead to parse values when passed in to the JSON.parse.
+	  if (data.charCodeAt(0) === 0xFEFF) data = data.slice(1);		
+
+		try { 
+			config = JSON.parse(data)
+		}catch (e) { }
+	}
+
+	return {
+		codeSectionMeta: true,
+		...(config || {}).multilingualMarkdown
+	}
+}

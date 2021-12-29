@@ -16,13 +16,14 @@
     "mulmd": "./bin/index.js"
   },
   "dependencies": {
-    "chalk": "^4.1.2"
+    "chalk": "^4.1.2",
+    "find-up": "^6.2.0"
   },
   "devDependencies": {
     "ava": "^3.15.0",
     "esm": "^3.2.25"
   },
-  "multilingual-markdown": {
+  "multilingualMarkdown": {
     "codeSectionMeta": true
   },
   "ava": {
