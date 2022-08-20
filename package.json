@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.1.0",
   "description": "",
-  "main": "bin/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "ava src/*.test.js",
     "buildedit": "esbuild index.js --outfile=docs/editor/mulmd.min.js --bundle --sourcemap=inline --format=iife --global-name=mulmd",
