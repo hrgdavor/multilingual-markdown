@@ -30,8 +30,8 @@ general
  - [x] ALL: convert to ESM
  - [x] CLI: read package.json for options (like the one above)
  - [ ] Editor: ask option: section info for code blocks
- - [ ] CLI: export clean file
- - [ ] CLI: export clean folder
+ - [ ] CLI: export clean file (MD without medatada)
+ - [ ] CLI: export clean folder (MD without medatada)
  - [ ] Editor: export clean file (MD without medatada)
  - [ ] LIB: translation info ([details](lib.translation.info.md))
    - [ ] Case 1 - `missing-translation`
