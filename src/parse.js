@@ -1,11 +1,20 @@
+import { START_TAG, END_TAG } from './consts.js'
 
-export default function parse (md, fileName = 'md') {
+export default function parse(md, fileName = 'md') {
   const lines = md.split('\n').map(l => l.trimEnd())
   const out = { sections: [] }
-  let section, codeBlock, title, json, level
+  let section = { title: '', lines: [], level: 0 },
+    codeBlock,
+    title,
+    json,
+    level,
+    infoBlock = ''
+  const topSection = section
+  const checkInfoDone = lineNum => {}
 
   lines.forEach((line, i) => {
     const lineNum = i + 1
+    const trimmed = line.trim()
 
     if (line[0] === '#') {
       level = 1
@@ -13,27 +22,34 @@ export default function parse (md, fileName = 'md') {
       title = line
       json = null
 
-      const idx = line.indexOf('{{')
-      if (idx !== -1) {
-        json = line.substring(idx + 1, line.length - 1)
-        title = line.substring(0, idx).trim()
-      }
       section = { title, lines: [], level }
-      try {
-        if (json) section.info = JSON.parse(json)
-      } catch (e) {
-        throw new Error(`Error parsing section info at ${fileName}:${lineNum}. ${e.message}. ${line}`)
-      }
+
       out.sections.push(section)
+    } else if (infoBlock || trimmed.startsWith(START_TAG)) {
+      infoBlock += trimmed
+      if (infoBlock.endsWith(END_TAG)) {
+        try {
+          const target = codeBlock || section || out
+          target.info = JSON.parse(infoBlock.substring(1, infoBlock.length - 1))
+        } catch (e) {
+          throw new Error(`Error parsing section info at ${fileName}:${lineNum}. ${e.message}. ${infoBlock}`)
+        } finally {
+          infoBlock = ''
+        }
+      }
     } else if (section) {
       if (line.substring(0, 3) === '```') {
         if (codeBlock) {
           // end old code block
-          if (line.substring(0, 3) === '```') { codeBlock = null } else { codeBlock.lines.push(line) }
+          if (line.substring(0, 3) === '```') {
+            codeBlock = null
+          } else {
+            codeBlock.lines.push(line)
+          }
         } else {
           // new code block
           title = line.substring(3).trim()
-          const idx = title.indexOf('{{')
+          const idx = title.indexOf(START_TAG)
           if (idx !== -1) {
             json = title.substring(idx + 1, title.length - 1)
             title = title.substring(0, idx).trim()
@@ -47,11 +63,16 @@ export default function parse (md, fileName = 'md') {
           section.lines.push(codeBlock)
         }
       } else {
-        (codeBlock || section).lines.push(line)
+        ;(codeBlock || section).lines.push(line)
       }
     } else {
       throw new Error('unhandled parser state')
     }
   })
+  if (topSection.info) {
+    out.info = topSection.info
+    delete topSection.info
+  }
+  if (topSection.lines.length) out.sections.unshift(topSection)
   return out
 }

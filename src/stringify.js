@@ -1,25 +1,34 @@
-
-export default function stringify (mdObj, fileName = 'md') {
+export default function stringify(mdObj, fileName = 'md') {
   return toLines(mdObj, []).join('\n')
 }
 
-function toLines (obj, out = []) {
+function stringifyInfo(info) {
+  return `(${JSON.stringify(info)})`
+}
+
+function toLines(obj, out = []) {
   if (obj instanceof Array) {
     obj.forEach(line => {
-      if (typeof line === 'string') { out.push(line) } else { toLines(line, out) }
+      if (typeof line === 'string') {
+        out.push(line)
+      } else {
+        toLines(line, out)
+      }
     })
   } else if (obj.sections) {
+    if (obj.info) out.push(stringifyInfo(obj.info))
     obj.sections.forEach(section => toLines(section, out))
-  } else if (obj.title) {
+  } else if (obj.title !== undefined) {
     let title = obj.title
-    if (obj.info) title += ' {' + JSON.stringify(obj.info) + '}'
-    out.push(title)
+    if (obj.level) out.push(title)
+    if (obj.info) out.push(stringifyInfo(obj.info))
     toLines(obj.lines, out)
-  } else { // code
+  } else {
+    // code
     let code = '```'
     if (obj.code) code += obj.code
-    if (obj.info) code += ' {' + JSON.stringify(obj.info) + '}'
     out.push(code)
+    if (obj.info) out.push(stringifyInfo(obj.info))
     toLines(obj.lines, out)
     out.push('```')
   }
