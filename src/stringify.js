@@ -1,5 +1,5 @@
 export default function stringify(mdObj, fileName = 'md', skipInfo, skipHidden) {
-  return toLines(mdObj, [], skipInfo).join('\n')
+  return toLines(mdObj, [], skipInfo, skipHidden).join('\n')
 }
 
 function stringifyInfo(info) {
